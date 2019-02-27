@@ -15,6 +15,7 @@
 		8E9D765722267F970045703F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9D765622267F970045703F /* main.m */; };
 		8E9D766122267F970045703F /* PopupDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9D766022267F970045703F /* PopupDemoTests.m */; };
 		8E9D766C22267F970045703F /* PopupDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9D766B22267F970045703F /* PopupDemoUITests.m */; };
+		8E9D767C222685500045703F /* DHPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9D767B2226854F0045703F /* DHPopupController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		8E9D766722267F970045703F /* PopupDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopupDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E9D766B22267F970045703F /* PopupDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopupDemoUITests.m; sourceTree = "<group>"; };
 		8E9D766D22267F970045703F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E9D767A2226854F0045703F /* DHPopupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHPopupController.h; sourceTree = "<group>"; };
+		8E9D767B2226854F0045703F /* DHPopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHPopupController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,7 @@
 		8E9D764622267F960045703F /* PopupDemo */ = {
 			isa = PBXGroup;
 			children = (
+				8E9D76792226854F0045703F /* DHPopupController */,
 				8E9D764722267F960045703F /* AppDelegate.h */,
 				8E9D764822267F960045703F /* AppDelegate.m */,
 				8E9D764A22267F960045703F /* ViewController.h */,
@@ -130,6 +134,16 @@
 				8E9D766D22267F970045703F /* Info.plist */,
 			);
 			path = PopupDemoUITests;
+			sourceTree = "<group>";
+		};
+		8E9D76792226854F0045703F /* DHPopupController */ = {
+			isa = PBXGroup;
+			children = (
+				8E9D767A2226854F0045703F /* DHPopupController.h */,
+				8E9D767B2226854F0045703F /* DHPopupController.m */,
+			);
+			name = DHPopupController;
+			path = ../../DHPopupController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +278,7 @@
 			files = (
 				8E9D764C22267F960045703F /* ViewController.m in Sources */,
 				8E9D765722267F970045703F /* main.m in Sources */,
+				8E9D767C222685500045703F /* DHPopupController.m in Sources */,
 				8E9D764922267F960045703F /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

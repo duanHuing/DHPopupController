@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "DHPopupController.h"
+
 
 @interface ViewController ()
 
@@ -19,5 +21,14 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
+- (IBAction)fsfsfsf:(id)sender {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 375, 500)];
+    view.backgroundColor = [UIColor greenColor];
+    
+    DHPopupController *popup = [[DHPopupController alloc] init];
+    popup.style = DHPopupControllerStyleBottom;
+    popup.contentViewCornerRadius = 10;
+    [popup showPopupView:view fromController:self];
+}
 
 @end
