@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E7CF713222775AE00B56006 /* DHAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CF712222775AE00B56006 /* DHAlertView.m */; };
 		8E9D764922267F960045703F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9D764822267F960045703F /* AppDelegate.m */; };
 		8E9D764C22267F960045703F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9D764B22267F960045703F /* ViewController.m */; };
 		8E9D764F22267F960045703F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E9D764D22267F960045703F /* Main.storyboard */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E7CF711222775AE00B56006 /* DHAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHAlertView.h; sourceTree = "<group>"; };
+		8E7CF712222775AE00B56006 /* DHAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHAlertView.m; sourceTree = "<group>"; };
 		8E9D764422267F960045703F /* PopupDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopupDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E9D764722267F960045703F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8E9D764822267F960045703F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -107,6 +110,8 @@
 				8E9D76792226854F0045703F /* DHPopupController */,
 				8E9D764722267F960045703F /* AppDelegate.h */,
 				8E9D764822267F960045703F /* AppDelegate.m */,
+				8E7CF711222775AE00B56006 /* DHAlertView.h */,
+				8E7CF712222775AE00B56006 /* DHAlertView.m */,
 				8E9D764A22267F960045703F /* ViewController.h */,
 				8E9D764B22267F960045703F /* ViewController.m */,
 				8E9D764D22267F960045703F /* Main.storyboard */,
@@ -280,6 +285,7 @@
 				8E9D765722267F970045703F /* main.m in Sources */,
 				8E9D767C222685500045703F /* DHPopupController.m in Sources */,
 				8E9D764922267F960045703F /* AppDelegate.m in Sources */,
+				8E7CF713222775AE00B56006 /* DHAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

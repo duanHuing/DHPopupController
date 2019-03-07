@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "DHPopupController.h"
-
+#import "DHAlertView.h"
 
 @interface ViewController ()
 
@@ -26,7 +26,7 @@
     view.backgroundColor = [UIColor greenColor];
     
     DHPopupController *popup = [[DHPopupController alloc] init];
-    popup.style = DHPopupControllerStyleBottom;
+    popup.style = DHPopupControllerStyleCustom;
     popup.contentViewCornerRadius = 10;
     [popup showPopupView:view fromController:self];
 }

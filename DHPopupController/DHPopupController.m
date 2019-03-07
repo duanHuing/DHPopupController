@@ -23,6 +23,10 @@
 
 @implementation DHPopupController
 
+- (void)dealloc {
+    NSLog(@"%@ -- dealloc",[self class]);
+}
+
 - (instancetype)init {
     if (self = [super init]) {
         [self dh_initial];
@@ -74,10 +78,10 @@
         };
     }
     
-    
     [self setup_corner];
 }
 
+// 设置圆角
 - (void)setup_corner {
     
     if (self.contentViewCornerRadius == 0) {
@@ -93,9 +97,6 @@
              _style == DHPopupControllerStyleCenter) {
         isCorner = YES;
     }
-    else {
-        
-    }
     
     if (isCorner) {
         //贝塞尔曲线 切左上和右上的圆角
@@ -106,7 +107,6 @@
         _contentView.layer.mask = maskLayer;
     }
 }
-
 
 //视图显示完 弹出弹窗
 - (void)viewDidAppear:(BOOL)animated {
@@ -176,6 +176,50 @@
     }];
 }
 
+#pragma mark - super
+
+// 屏幕旋转时，会被调用
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    
+    CGRect rect = self.maskView.frame;
+    rect.size = size;
+    self.maskView.frame = rect;
+    
+    CGRect rect2 = self.contentView.frame;
+    switch (self.style) {
+        case DHPopupControllerStyleTop: {
+            rect2.origin.x = (size.width - CGRectGetWidth(rect2)) / 2;
+            rect2.origin.y = 0;
+        }break;
+            
+        case DHPopupControllerStyleLeft: {
+            rect2.origin.x = 0;
+            rect2.origin.y = (size.height - CGRectGetHeight(rect2)) / 2;
+        }break;
+            
+        case DHPopupControllerStyleBottom: {
+            rect2.origin.x = (size.width - CGRectGetWidth(rect2)) / 2;
+            rect2.origin.y = size.height - CGRectGetHeight(rect2);
+        }break;
+        
+        case DHPopupControllerStyleRight: {
+            rect2.origin.x = size.width - CGRectGetWidth(rect2);
+            rect2.origin.y = (size.height - CGRectGetHeight(rect2)) / 2;
+        }break;
+            
+        case DHPopupControllerStyleCenter: {
+            rect2.origin.x = (size.width - CGRectGetWidth(rect2)) / 2;
+            rect2.origin.y = (size.height - CGRectGetHeight(rect2)) / 2;
+        }break;
+            
+        case DHPopupControllerStyleCustom: {
+            
+        }break;
+    }
+    
+    self.contentView.frame = rect2;
+}
+
 #pragma mark -- setter
 
 - (void)setIsDismissOnTouthMask:(BOOL)isDismissOnTouthMask {
@@ -201,10 +245,6 @@
         [_maskView addGestureRecognizer:tap];
     }
     return _maskView;
-}
-
-- (void)dealloc {
-    NSLog(@"%@ -- dealloc",[self class]);
 }
 
 @end
