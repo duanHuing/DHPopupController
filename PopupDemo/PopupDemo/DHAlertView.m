@@ -8,30 +8,35 @@
 
 #import "DHAlertView.h"
 
+@interface DHAlertView ()
+
+@property (nonatomic, strong) UILabel  *titleLab;
+
+@end
+
 @implementation DHAlertView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
+        
         UILabel *titleLab = [[UILabel alloc] init];
         titleLab.text = @"提示" ;
         titleLab.textColor = [UIColor blackColor];
         titleLab.font = [UIFont systemFontOfSize:16];
         titleLab.textAlignment = NSTextAlignmentCenter;
+        _titleLab = titleLab;
         [self addSubview:titleLab];
         
-        
-        titleLab.translatesAutoresizingMaskIntoConstraints = NO;
-        /*居中显示*/
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:titleLab attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
-        
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:titleLab attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1 constant:10]];
-        
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:titleLab attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:100]];
-
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:titleLab attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:20]];
     }
     return self;
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    _titleLab.bounds = CGRectMake(0, 0, 100, 20);
+    _titleLab.center = CGPointMake(CGRectGetWidth(self.frame) / 2, 20);
+
+}
 
 @end

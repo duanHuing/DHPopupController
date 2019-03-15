@@ -22,11 +22,12 @@
 }
 
 - (IBAction)fsfsfsf:(id)sender {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 375, 500)];
+    
+    DHAlertView *view = [[DHAlertView alloc] initWithFrame:CGRectMake(0, 0, 300, 250)];
     view.backgroundColor = [UIColor greenColor];
     
     DHPopupController *popup = [[DHPopupController alloc] init];
-    popup.style = DHPopupControllerStyleCustom;
+    popup.style = DHPopupControllerStyleBottom;
     popup.contentViewCornerRadius = 10;
     [popup showPopupView:view fromController:self];
 }
