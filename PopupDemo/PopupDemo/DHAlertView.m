@@ -27,6 +27,10 @@
         _titleLab = titleLab;
         [self addSubview:titleLab];
         
+        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(10, 50, 40, 25)];
+        textField.placeholder = @"输入框";
+        [self addSubview:textField];
+        
     }
     return self;
 }

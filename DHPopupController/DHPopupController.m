@@ -44,6 +44,8 @@
 - (void)dh_initial {
     self.maskViewInsets = UIEdgeInsetsZero;
     self.isDismissOnTouthMask = YES;
+    self.style = DHPopupControllerStyleCenter;
+    self.contentViewCornerRadius = 5;
     self.duration = 0.25;
 }
 
@@ -162,7 +164,12 @@
 
 //点击背景处，收起弹框
 - (void)clickedMaskViewWithTap:(UITapGestureRecognizer*)tap {
-    [self dismiss];
+    
+    if (self.isDismissOnTouthMask) {
+        [self dismiss];
+    }
+    
+    [self.view endEditing:YES];
 }
 
 // 返回
@@ -225,7 +232,7 @@
 - (void)setIsDismissOnTouthMask:(BOOL)isDismissOnTouthMask {
     _isDismissOnTouthMask = isDismissOnTouthMask;
     
-    self.maskView.userInteractionEnabled = _isDismissOnTouthMask;
+    //self.maskView.userInteractionEnabled = _isDismissOnTouthMask;
 }
 
 /** maskView 与屏幕的间隔 */
@@ -242,6 +249,7 @@
         _maskView = [[UIView alloc] initWithFrame:self.view.bounds];
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickedMaskViewWithTap:)];
         _maskView.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
+        _maskView.userInteractionEnabled = YES;
         [_maskView addGestureRecognizer:tap];
     }
     return _maskView;

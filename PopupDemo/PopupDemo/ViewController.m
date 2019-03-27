@@ -27,8 +27,7 @@
     view.backgroundColor = [UIColor greenColor];
     
     DHPopupController *popup = [[DHPopupController alloc] init];
-    popup.style = DHPopupControllerStyleBottom;
-    popup.contentViewCornerRadius = 10;
+    popup.isDismissOnTouthMask = NO;
     [popup showPopupView:view fromController:self];
 }
 

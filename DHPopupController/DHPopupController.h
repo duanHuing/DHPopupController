@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** 视图弹出风格 */
 @property (nonatomic, assign) DHPopupControllerStyle style;
 
-/** 触碰 mask view 时是否可以返回  默认开启 */
+/** 触碰 mask view 时是否可以返回  默认为YES，为No时，如果此时有键盘，则收起键盘*/
 @property (nonatomic, assign) BOOL isDismissOnTouthMask;
 
 /** maskView 与屏幕的间隔 默认没有间隔*/
