@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name             = "DHPopupController"
-s.version          = "0.1.1"
+s.version          = "0.1.2"
 s.summary          = "弹出框 "
 s.description      = <<-DESC
 一个弹出框,需要自定义popupView,使用DHPopupController弹出
