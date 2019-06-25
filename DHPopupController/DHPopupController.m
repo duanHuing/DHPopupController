@@ -19,17 +19,24 @@
 
 @property (nonatomic, strong) UIView *contentView;
 
+@property (nonatomic, assign) BOOL  isKeyboardVisable;
+
 @end
 
 @implementation DHPopupController
 
 - (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     NSLog(@"%@ -- dealloc",[self class]);
 }
 
 - (instancetype)init {
     if (self = [super init]) {
         [self dh_initial];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow) name:UIKeyboardDidShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide) name:UIKeyboardDidHideNotification object:nil];
+        
     }
     return self;
 }
@@ -38,7 +45,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view
     [self.view addSubview:self.maskView];
-    
 }
 
 - (void)dh_initial {
@@ -165,11 +171,15 @@
 //点击背景处，收起弹框
 - (void)clickedMaskViewWithTap:(UITapGestureRecognizer*)tap {
     
-    if (self.isDismissOnTouthMask) {
-        [self dismiss];
+    // 如果有键盘显示，则点击背景为收起键盘
+    if (self.isKeyboardVisable) {
+        [self.view endEditing:YES];
     }
-    
-    [self.view endEditing:YES];
+    else {
+        if (self.isDismissOnTouthMask) {
+            [self dismiss];
+        }
+    }
 }
 
 // 返回
@@ -182,6 +192,17 @@
         [self dismissViewControllerAnimated:NO completion:nil];
     }];
 }
+
+#pragma mark - private
+
+- (void)keyboardDidShow {
+    self.isKeyboardVisable = YES;
+}
+
+- (void)keyboardDidHide {
+    self.isKeyboardVisable = NO;
+}
+
 
 #pragma mark - super
 
